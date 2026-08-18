@@ -181,13 +181,22 @@ if uploaded_file is not None:
                 
                 # Show prediction distribution
                 st.markdown("### 📊 Prediction Distribution")
-                pred_df = pd.DataFrame({
-                    'Actual': y_test.value_counts().sort_index(),
-                    'Predicted': pd.Series(y_pred).value_counts().sort_index()
-                })
-                pred_df.index = ['Legitimate (0)', 'Fraud (1)']
-                st.bar_chart(pred_df)
                 
+                # Count predictions safely
+                actual_counts = pd.Series(y_test).value_counts().sort_index().to_dict()
+                pred_counts = pd.Series(y_pred).value_counts().sort_index().to_dict()
+                
+                # Ensure both classes are represented
+                actual_0 = actual_counts.get(0, 0)
+                actual_1 = actual_counts.get(1, 0)
+                pred_0 = pred_counts.get(0, 0)
+                pred_1 = pred_counts.get(1, 0)
+                
+                pred_df = pd.DataFrame({
+                    'Actual': [actual_0, actual_1],
+                    'Predicted': [pred_0, pred_1]
+                }, index=['Legitimate (0)', 'Fraud (1)'])
+                st.bar_chart(pred_df)
     except Exception as e:
         st.error(f"❌ Error processing file: {e}")
         st.info("Please ensure your CSV file has the correct structure with a 'Class' column.")
