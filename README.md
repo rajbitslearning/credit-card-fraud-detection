@@ -154,9 +154,7 @@ The interactive web application includes:
 
 The app is deployed on Streamlit Community Cloud:
 
-**Live App URL:** [https://your-app.streamlit.app](https://your-app.streamlit.app)
-
-*Note: Replace with your actual Streamlit app URL after deployment*
+**Live App URL:** https://credit-card-fraud-detection-6dt7nt3uggshqxe6ghphjd.streamlit.app/
 
 ### Deployment Steps:
 
