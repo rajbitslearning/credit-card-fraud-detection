@@ -10,42 +10,21 @@ import pickle
 import os
 import sys
 
-# Debug: Show Python version and path
-st.write(f"🔧 DEBUG: Python {sys.version}")
-st.write(f"🔧 DEBUG: sys.path[0] = {sys.path[0] if sys.path else 'N/A'}")
-
-# Try importing sklearn with error details
-try:
-    from sklearn.metrics import (
-        accuracy_score, roc_auc_score, precision_score,
-        recall_score, f1_score, matthews_corrcoef,
-        confusion_matrix, classification_report
-    )
-    st.success("✅ sklearn.metrics imported successfully")
-except ImportError as e:
-    st.error(f"❌ IMPORT ERROR: {e}")
-    st.error(f"Type: {type(e).__name__}")
-    st.error(f"Args: {e.args}")
-    sys.exit(1)
-except Exception as e:
-    st.error(f"❌ UNEXPECTED ERROR: {e}")
-    st.error(f"Type: {type(e).__name__}")
-    sys.exit(1)
-
-try:
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    st.success("✅ matplotlib & seaborn imported successfully")
-except ImportError as e:
-    st.error(f"❌ MATPLOTLIB/SEABORN ERROR: {e}")
-    sys.exit(1)
-
-# Page configuration
+# Page configuration MUST be first!
 st.set_page_config(
     page_title="Credit Card Fraud Detection",
     page_icon="💳",
     layout="wide"
 )
+
+# Now import sklearn and matplotlib
+from sklearn.metrics import (
+    accuracy_score, roc_auc_score, precision_score,
+    recall_score, f1_score, matthews_corrcoef,
+    confusion_matrix, classification_report
+)
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Title and description
 st.title("💳 Credit Card Fraud Detection")
