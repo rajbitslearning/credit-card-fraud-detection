@@ -34,10 +34,7 @@ The features V1-V28 are the result of a PCA transformation applied to protect us
 - No missing values present in the dataset
 
 ## GitHub Repository Link
-
-[https://github.com/YOUR_USERNAME/credit-card-fraud-detection](https://github.com/YOUR_USERNAME/credit-card-fraud-detection)
-
-*Note: Replace with your actual GitHub repository URL*
+https://github.com/rajbitslearning/credit-card-fraud-detection
 
 ## Models Used
 
